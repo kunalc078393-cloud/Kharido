@@ -1,5 +1,6 @@
 import express from 'express';
 import morgon from 'morgan';
+import cors from "cors";
 import cookieParser from 'cookie-parser';
 import authRouter from './routes/auth.routes.js';
 import categoryRouter from './routes/category.routes.js';
@@ -7,9 +8,19 @@ import productRouter from './routes/product.routes.js';
 import cartRouter from './routes/cart.routes.js';
 import orderRouter from './routes/order.routes.js';
 import testRouter from './routes/test.routes.js';
+import config from './config/config.js';
 
 
 const app = express();
+
+
+
+app.use(cors({
+    origin: config.CLIENT_URL,
+    methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
+    credentials: true
+
+}));
 
 app.use(express.json());
 app.use(morgon('dev'));

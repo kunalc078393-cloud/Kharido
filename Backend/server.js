@@ -7,11 +7,8 @@ import app from "./src/app.js";
 import connectDB from "./src/config/database.js";
 
 dotenv.config();
-// app.use(express.json());
 
 connectDB();
-
-
 
 app.get('/',(req,res)=>{
     res.send("this is the message from backend")
