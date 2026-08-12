@@ -148,19 +148,21 @@ export async function login(req, res) {
 
 }
 
-export async function getme(req, res) {
+export async function getMe(req, res) {
     const token = req.headers.authorization?.split(" ")[1];
     if (!token) {
         return res.status(401).json({
             message: 'token not found',
         })
     }
+    
+    let decoded = null;
 
     try {
-        const decoded = jwt.verify(token, config.JWT_SECRET);
+      decoded = jwt.verify(token, config.JWT_SECRET);
 
     } catch (error) {
-        res.status(401).json({
+        return res.status(401).json({
             message: "Invalid token"
         })
 

@@ -11,7 +11,7 @@ authRouter.post('/login',authController.login)
 
 
 //Get-me route
-authRouter.get("/getme",authController.getme);
+authRouter.get("/getme",authController.getMe);
 
 // Refresh route
 authRouter.get("/refresh-token",authController.refreshToken);
