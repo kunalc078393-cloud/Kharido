@@ -29,7 +29,7 @@ export async function createCategory(req , res){
 
 
 export async function getCategories(req, res) {
-    const categories = await categoryModel.find({isActive : true,},'name _id');
+    const categories = await categoryModel.find({isActive : true,},'name _id image');
 
     res.status(200).json({
         "message":"categories are returned",
