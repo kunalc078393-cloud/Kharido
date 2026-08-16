@@ -53,7 +53,7 @@ function RegisterPage() {
                 message = "Password can't be empty";
             }else if (value.length < 8) {
                 error = true;
-                message = "Passwort must be 8 character long";
+                message = "Password must be 8 character long";
 
             }
 
@@ -74,7 +74,7 @@ function RegisterPage() {
 
         setFormData((prev) => ({
             ...prev,
-            name : value
+            [name] : value
         }))
     }
 
@@ -89,7 +89,7 @@ function RegisterPage() {
             return;
         }
 
-        dispatch(register());
+        dispatch(register(formData));
 
 
 
@@ -135,7 +135,7 @@ function RegisterPage() {
                             name="email"
 
                             onChange={handleChange}
-                            className={`w-full px-4 py-2 rounded border ${fieldErrors.email.error ? "border-[#d74a49] bg-red-50" : "border-[#8ba0a4]"}focus:outline-none focus:ring-2 focus:ring-[#1b4552]`}
+                            className={`w-full px-4 py-2 rounded border ${fieldErrors.email.error ? "border-[#d74a49] bg-red-50" : "border-[#8ba0a4]"} focus:outline-none focus:ring-2 focus:ring-[#1b4552]`}
                         />
                         {fieldErrors.email?.error && (
                             <p className="text-[#d74a49] text-sm mt-1">{fieldErrors.email.message}</p>
@@ -176,7 +176,7 @@ function RegisterPage() {
                     {/* Navigation to Login */}
                     <p className="mt-4 text-center text-sm text-[#1b4552]">
                         Already have an account?{" "}
-                        <Link to="/register" className="text-[#d74a49] hover:text-[#1b4552] font-medium">
+                        <Link to="/login" className="text-[#d74a49] hover:text-[#1b4552] font-medium">
                             Login here
                         </Link>
                     </p>

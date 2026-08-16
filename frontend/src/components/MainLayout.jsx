@@ -6,7 +6,7 @@ import Loading from "./Loading"
 import Footer from './Footer'
 
 function MainLayout() {
-  const {initialized} = useSelector((state)=> state.auth);
+  const {initialized} = useSelector((state)=> state.auth)
   if(!initialized){
     return <Loading/>
   }

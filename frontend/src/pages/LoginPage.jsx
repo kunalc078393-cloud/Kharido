@@ -163,7 +163,7 @@ function LoginPage() {
                 {/* Register Link */}
                 <p className="mt-4 text-center text-sm text-[#1b4552]">
                     Don’t have an account?{" "}
-                    <Link to="/" className="text-[#d74a49] hover:text-[#1b4552] font-medium">
+                    <Link to="/register" className="text-[#d74a49] hover:text-[#1b4552] font-medium">
                         Register here
                     </Link>
                 </p>

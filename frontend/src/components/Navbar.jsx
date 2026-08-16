@@ -9,7 +9,7 @@ import Loading from './Loading';
 
 function Navbar() {
     const { user, isAuthenticated } = useSelector((state) => state.auth);
-    const { cart  } = useSelector((state) => state.cart)
+    const { cart } = useSelector((state) => state.cart)
     const dispatch = useDispatch();
     const Navigate = useNavigate();
 
@@ -19,7 +19,6 @@ function Navbar() {
     }
 
 
-    console.log(cart);
 
 
 
@@ -35,7 +34,7 @@ function Navbar() {
                 {/* Example: Add links or search bar here */}
                 <Link to="/" className="hover:text-[#d74a49]">Home</Link>
                 <Link to="/products" className="hover:text-[#d74a49]">Products</Link>
-                <Link to="/about" className="hover:text-[#d74a49]">About</Link>
+
             </div>
 
             {/* Right Section: Username + Cart */}
@@ -66,11 +65,16 @@ function Navbar() {
                 <Link to="/cart" className="relative hover:text-[#d74a49]">
                     🛒
                     {/* Cart badge example */}
-                  
-                    <span className="absolute -top-2 -right-3 bg-[#d74a49] text-white text-xs px-2 py-0.5 rounded-full">
-                        {cart.items.reduce((acc, product) => acc + product.quantity , 0)}
-                        
-                    </span>
+                    {isAuthenticated ? (
+                        <span className="absolute -top-2 -right-3 bg-[#d74a49] text-white text-xs px-2 py-0.5 rounded-full">
+                            {cart && cart.items.reduce((acc, product) => acc + product.quantity , 0)}
+
+                        </span>
+                    ) : (
+                        ''
+                    )}
+
+
                 </Link>
 
 
