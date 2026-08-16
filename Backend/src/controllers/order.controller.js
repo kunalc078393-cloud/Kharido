@@ -103,6 +103,7 @@ export async function placeOrder(req, res){
         const product ={
             product : item.product,
             name : item.product.name,
+            images : item.product.images,
             price : item.product.price,
             quantity : item.quantity,
             itemTotal : item.quantity * item.product.price,
@@ -346,6 +347,7 @@ export async function buyNow(req , res){
             {
                 product: product._id,
                 name : product.name,
+                images : product.images,
                 price : product.price,
                 quantity,
                 itemTotal : quantity * product.price
